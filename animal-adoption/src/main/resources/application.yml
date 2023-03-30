@@ -1,0 +1,32 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  restTemplate:
+    # Customize the RestTemplate with additional message converters or other settings
+    messageConverters:
+      - jackson
+      - xml
+    requestFactory: # customize the request factory
+      timeout: 5000
+      # other request factory properties
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lab:
+            non_contextual_creation: true
+    datasource:
+      hikari:
+        connectionTimeout: 20000
+        maximumPoolSize: 5
+        poolName: HikariPoolZZZ
+
+client:
+  dog:
+    url: https://api.thedogapi.com/v1
+    api_key: live_d1YNv0nPUFXB5rhYlsq83xtfpdWz0omzMpz7ozAaPKJzRCj8OUIeQXe5YNAtlFq1
+  cat:
+    url: https://api.thecatapi.com/v1
+    api_key: live_BjF84VFjeLAmGdoNp7lYTJTK7MwQVxD59nmOJ7bifHlZu8hyhvUZSqvgasb5PjZa
