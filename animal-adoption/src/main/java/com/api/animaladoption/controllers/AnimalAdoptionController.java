@@ -22,7 +22,6 @@ import java.util.List;
 public class AnimalAdoptionController {
 
     private final AnimalAdoptionService animalAdoptionService;
-
     @Autowired
     public AnimalAdoptionController(AnimalAdoptionService animalAdoptionService) {
         this.animalAdoptionService = animalAdoptionService;
