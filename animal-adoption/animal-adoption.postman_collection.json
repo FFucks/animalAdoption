@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "54fcdb19-045e-4ecc-a7b1-6e86ff940958",
+		"name": "animal-adoption",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18693032"
+	},
+	"item": [
+		{
+			"name": "animal CACHORRO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Chow Chow\",\n    \"apelido\": \"Juvenal\",\n    \"descricao\": \"Brincalhão\",\n    \"categoria\": \"Cachorro\",\n    \"status\": \"Disponivel\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/animal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"animal"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "animal GATO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Abyssinian\",\n    \"apelido\": \"Frajola\",\n    \"descricao\": \"Arisco\",\n    \"categoria\": \"Gato\",\n    \"status\": \"Disponivel\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/animal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"animal"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "animal",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/animal?categoria=Gato",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"animal"
+					],
+					"query": [
+						{
+							"key": "termo",
+							"value": "Chow Chow",
+							"disabled": true
+						},
+						{
+							"key": "categoria",
+							"value": "Gato"
+						},
+						{
+							"key": "status",
+							"value": "Disponivel",
+							"disabled": true
+						},
+						{
+							"key": "dataCriacao",
+							"value": "30-03-2023",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "animal",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"Adotado\",\n    \"alias\": \"Frajola\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/animal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"animal"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "Chow Chow",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Cachorro",
+							"disabled": true
+						},
+						{
+							"key": "alias",
+							"value": "Disponivel",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "30-03-2023",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "animals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/animals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"animals"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

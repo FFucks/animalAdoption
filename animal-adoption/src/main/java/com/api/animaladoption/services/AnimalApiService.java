@@ -33,7 +33,7 @@ public class AnimalApiService {
         StringBuilder url = new StringBuilder(category.equalsIgnoreCase("Cachorro") ?
                 dogUrl : catUrl);
         url.append("/breeds");
-        url.append("?api_key");
+        url.append("?api_key=");
         url.append(category.equalsIgnoreCase("Cachorro") ? dogApiKey : catApiKey);
 
         try {

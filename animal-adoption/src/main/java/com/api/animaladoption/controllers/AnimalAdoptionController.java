@@ -3,9 +3,7 @@ package com.api.animaladoption.controllers;
 import com.api.animaladoption.dtos.AnimalDto;
 import com.api.animaladoption.dtos.UpdateAnimalDto;
 import com.api.animaladoption.models.AnimalAdoptionModel;
-import com.api.animaladoption.models.Breed;
 import com.api.animaladoption.services.AnimalAdoptionService;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +17,7 @@ import java.util.List;
 @Controller
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/")
+@RestController
 public class AnimalAdoptionController {
 
     private final AnimalAdoptionService animalAdoptionService;
@@ -34,7 +33,10 @@ public class AnimalAdoptionController {
 
     @GetMapping("/animals")
     public ResponseEntity<List<AnimalAdoptionModel>> getAnimals() {
-        return ResponseEntity.status(HttpStatus.OK).body(animalAdoptionService.findAllAnimals());
+        final List<AnimalAdoptionModel> animalList = animalAdoptionService.findAllAnimals();
+        return animalList != null && !animalList.isEmpty()
+                ? ResponseEntity.status(HttpStatus.OK).body(animalList)
+                : ResponseEntity.status(HttpStatus.NOT_FOUND).body(animalList);
     }
 
     @GetMapping("/animal")
@@ -42,11 +44,17 @@ public class AnimalAdoptionController {
                                                                @PathParam("categoria") String categoria,
                                                                @PathParam("status") String status,
                                                                @PathParam("dataCriacao") String dataCriacao) {
-        return ResponseEntity.status(HttpStatus.OK).body(animalAdoptionService.getAnimal(termo, categoria, status, dataCriacao));
+        final List<AnimalAdoptionModel> animalList = animalAdoptionService.getAnimal(termo, categoria, status, dataCriacao);
+        return animalList != null && !animalList.isEmpty()
+                ? ResponseEntity.status(HttpStatus.OK).body(animalList)
+                : ResponseEntity.status(HttpStatus.NOT_FOUND).body(animalList);
     }
 
     @PatchMapping("/animal")
     public ResponseEntity<Integer> patchAnimal(@RequestBody @Valid UpdateAnimalDto updateAnimalDto) {
-        return ResponseEntity.status(HttpStatus.OK).body(animalAdoptionService.updateAnimalStatus(updateAnimalDto));
+        final int animalUpdt = animalAdoptionService.updateAnimalStatus(updateAnimalDto);
+        return animalUpdt == 0
+                ? ResponseEntity.status(HttpStatus.NOT_FOUND).body(animalUpdt)
+                : ResponseEntity.status(HttpStatus.OK).body(animalUpdt);
     }
 }

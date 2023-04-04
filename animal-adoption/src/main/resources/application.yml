@@ -2,13 +2,11 @@ spring:
   main:
     allow-bean-definition-overriding: true
   restTemplate:
-    # Customize the RestTemplate with additional message converters or other settings
     messageConverters:
       - jackson
       - xml
-    requestFactory: # customize the request factory
+    requestFactory:
       timeout: 5000
-      # other request factory properties
   jpa:
     hibernate:
       ddl-auto: update
