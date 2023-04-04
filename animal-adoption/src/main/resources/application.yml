@@ -31,4 +31,4 @@ client:
 
 server:
   address: localhost
-  port: 8000
+  port: 8080
