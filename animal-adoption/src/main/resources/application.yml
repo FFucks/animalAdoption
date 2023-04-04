@@ -28,3 +28,7 @@ client:
   cat:
     url: https://api.thecatapi.com/v1
     api_key: live_BjF84VFjeLAmGdoNp7lYTJTK7MwQVxD59nmOJ7bifHlZu8hyhvUZSqvgasb5PjZa
+
+server:
+  address: localhost
+  port: 8000
