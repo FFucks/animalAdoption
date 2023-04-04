@@ -16,9 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @SpringBootTest
@@ -242,68 +240,5 @@ class AnimalAdoptionApplicationTests {
 		Mockito.verify(animalAdoptionRepository, Mockito.times(1))
 				.updateAnimalStatus(updateAnimalDto.getId(), updateAnimalDto.getName(), updateAnimalDto.getAlias(), updateAnimalDto.getStatus());
 	}
-
-
-
-/*
-	@Test
-	public void service_verifyIp_OK() {
-		boolean verifyIp = ipFilterService.verifyIp(SOURCE_IP);
-
-		Assertions.assertTrue(verifyIp);
-	}
-
-	@Test
-	public void service_verifyIp_NOK() {
-		boolean verifyIp = ipFilterService.verifyIp("1921.168.0.155");
-
-		Assertions.assertFalse(verifyIp);
-	}
-
-	@Test
-	public void service_findByIp_OK() {
-		Assertions.assertEquals(1L, ipFilterService.findByIp(SOURCE_IP, DESTINATION_IP).getId());
-	}
-
-	@Test
-	public void service_findByIp_NOK() {
-		Assertions.assertNotEquals(2L, ipFilterService.findByIp(SOURCE_IP, DESTINATION_IP).getId());
-	}
-
-	@Test
-	public void service_getAllFilters_OK() {
-		List<IpFilterModel> ipFilterModelList = Arrays.asList(
-				new IpFilterModel(1L, "test", "192.168.0.5", "192.168.0.6","allow"),
-				new IpFilterModel(2L, "test2", "127.0.0.1", "127.0.0.2", "deny")
-		);
-
-		Mockito.when(ipFilterService.getAllFilters()).thenReturn(ipFilterModelList);
-		Assertions.assertEquals(ipFilterModelList, ipFilterService.getAllFilters());
-	}
-
-	@Test
-	public void service_getAllFilters_NOK() {
-		List<IpFilterModel> ipFilterModelList = Arrays.asList(
-				new IpFilterModel(1L, "test", "192.168.0.5", "192.168.0.6", "allow"),
-				new IpFilterModel(2L, "test2", "192.168.0.9", "192.168.0.10","deny")
-		);
-
-		Mockito.when(ipFilterService.getAllFilters()).thenReturn(ipFilterModelList);
-		Assertions.assertNotEquals(new ArrayList<>(), ipFilterService.getAllFilters());
-	}
-
-	@Test
-	public void service_saveIpFilter_OK() {
-		ipFilterService.saveIpFilter(new IpFilterModel(2L, "test2", "192.168.0.9", "192.168.0.10", "deny"));
-		Mockito.verify(ipFilterRepository, Mockito.times(1)).save(Mockito.any(IpFilterModel.class));
-	}
-
-	@Test
-	public void service_delete_OK() {
-		ipFilterService.delete(SOURCE_IP, DESTINATION_IP);
-		Mockito.verify(ipFilterRepository, Mockito.times(1)).deleteBySourceIpAndDestinationIp(SOURCE_IP, DESTINATION_IP);
-	}*/
-
-
 
 }
